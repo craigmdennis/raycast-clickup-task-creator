@@ -1,4 +1,4 @@
-import { getPreferenceValues, showHUD } from "@raycast/api";
+import { getPreferenceValues, showHUD, LaunchProps } from "@raycast/api";
 import { createTask } from "./clickup";
 
 interface Preferences {
@@ -6,11 +6,11 @@ interface Preferences {
   listId: string;
 }
 
-interface Arguments {
+interface CommandArguments {
   taskTitle: string;
 }
 
-export default async function Command(props: { arguments: Arguments }) {
+export default async function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
   const { apiKey, listId } = getPreferenceValues<Preferences>();
   const { taskTitle } = props.arguments;
 
