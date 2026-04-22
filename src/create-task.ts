@@ -10,8 +10,14 @@ interface CommandArguments {
   taskTitle: string;
 }
 
+function extractListId(value: string): string {
+  const match = value.match(/\/li\/(\d+)/);
+  return match ? match[1] : value.trim();
+}
+
 export default async function Command(props: LaunchProps<{ arguments: CommandArguments }>) {
-  const { apiKey, listId } = getPreferenceValues<Preferences>();
+  const { apiKey, listId: rawListId } = getPreferenceValues<Preferences>();
+  const listId = extractListId(rawListId);
   const { taskTitle } = props.arguments;
 
   try {
