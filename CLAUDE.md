@@ -8,6 +8,6 @@ Log:
 - Moments where the plan changed mid-build and why
 - Anything surprising or counterintuitive
 
-One to three sentences per entry. Raw observations only — the `blog-post` skill turns them into prose.
+Format each entry as `**YYYY-MM-DD — Short title**` followed by one to three sentences. Raw observations only — the `portfolio-content` skill turns them into prose.
 
 Blog posts, images, and drafts go in `blog/`. This folder is gitignored — nothing in it is committed to the repo.
