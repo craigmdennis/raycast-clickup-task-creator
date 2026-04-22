@@ -17,6 +17,6 @@ export async function createTask(title: string, listId: string, apiKey: string):
   if (!response.ok) {
     const data: unknown = await response.json().catch(() => ({}));
     const errData = data as { err?: string; message?: string };
-    throw new Error(errData.err ?? errData.message ?? "Unknown error");
+    throw new Error(errData.err ?? errData.message ?? `HTTP ${response.status}`);
   }
 }
